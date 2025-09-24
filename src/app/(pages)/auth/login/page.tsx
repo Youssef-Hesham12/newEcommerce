@@ -26,8 +26,8 @@ const formSchema = z.object({
 
 export default function Login() {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const callbackURL = searchParams.get("callbackUrl") || "/products"
+  // const searchParams = useSearchParams()
+  // const callbackURL = searchParams.get("callbackUrl") || "/products"
   const [signingIn, setSigningIn] = useState(false)
   const [authError, setAuthError] = useState<string | null>(null)
   type LoginFormValues = z.infer<typeof formSchema>
@@ -56,7 +56,7 @@ export default function Login() {
     }
 
     if (response?.ok) {
-      router.push(callbackURL)
+      router.push("/")
     }
 
     setSigningIn(false)
